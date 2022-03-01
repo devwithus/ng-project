@@ -1,10 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
+
+import { ModalContentComponent } from '../modal/modal-content.component';
 
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html'
 })
 export class TemplateComponent implements OnInit {
+
   content:any;
 
   readonly codeMirrorOptions: any = {
@@ -18,6 +22,20 @@ export class TemplateComponent implements OnInit {
     matchBrackets: true,
     lint: true
   };
+
+  constructor(private modalService: BsModalService){
+  }
+
+
+  openModalWithComponent(message: string) {
+    const initialState: ModalOptions = {
+      initialState: {
+        content: '<app-template-form></app-template-form>',
+        title: 'Modal with component'
+      }
+    };
+   this.modalService.show(ModalContentComponent, initialState);
+  }
 
   ngOnInit(){
     this.content = JSON.stringify({

@@ -4,15 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TemplateModule } from './template/template.module';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
+import { ModalContentComponent } from './modal/modal-content.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ModalContentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TemplateModule
+    TemplateModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { setTheme } from 'ngx-bootstrap/utils';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-project';
+
+  constructor(){
+    setTheme('bs3');
+  }
 
 }
